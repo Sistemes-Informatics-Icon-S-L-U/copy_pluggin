@@ -1,13 +1,23 @@
 function getText(){
 	let modal=document.getElementById("artdeco-modal-outlet");
 	if (modal){
-		let txt=document.getElementById("pv-contact-info").innerText+"\t";
+		let txt=data()+"\t";
+		txt+=document.getElementById("pv-contact-info").innerText+"\t";
 		let info=modal.getElementsByClassName("pv-contact-info__ci-container");
 		for (let i=0;i<info.length;i++){
 			txt+=info[i].innerText+"\t";
 		}
 		copyStringToClipboard(txt);
 	}
+}
+
+function data(){
+	var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+
+	return dd + '/' + mm + '/' + yyyy;
 }
 
 var intervalBtn;
